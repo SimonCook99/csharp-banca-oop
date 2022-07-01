@@ -24,6 +24,13 @@ namespace csharp_banca_oop
             Console.WriteLine();
         }
 
+        public void stampaPrestiti(){
+            foreach (Prestito prestito in this.prestiti){
+                Console.WriteLine($"Prestito n. {prestito.ID} intestato a: {prestito.intestatario.Nome} {prestito.intestatario.Cognome} con un ammontare di {prestito.ammontare}€ da pagare in {prestito.rata} rate");
+            }
+            Console.WriteLine();
+        }
+
         public void ModificaCliente(string codiceFiscaleVecchioCliente, Cliente nuovoCliente){
             foreach (Cliente cliente in this.clienti){
                 if(cliente.CF == codiceFiscaleVecchioCliente){
@@ -51,7 +58,12 @@ namespace csharp_banca_oop
         }
 
         public void aggiungiPrestito(Cliente intestatario, int ammontare, int rata, DateTime inizio, DateTime fine){
-            this.prestiti.Add( new Prestito(intestatario, ammontare, rata, inizio, fine) );
+            if (this.clienti.Contains(intestatario)){
+                this.prestiti.Add(new Prestito(intestatario, ammontare, rata, inizio, fine));
+            }
+            else{
+                Console.WriteLine("Spiacente, l'utente non è registrato alla piattaforma");
+            }
         }
     }
 }

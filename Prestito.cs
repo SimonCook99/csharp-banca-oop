@@ -8,7 +8,7 @@ namespace csharp_banca_oop
 {
     public class Prestito{
         public int ID { get; set; }
-        Cliente intestatario { get; set; }
+        public Cliente intestatario { get; set; }
         public int ammontare { get; set; }
         public int rata { get; set; }
         public DateTime inizio { get; set; }
