@@ -11,5 +11,12 @@ namespace csharp_banca_oop
         public string Cognome { get; set; }
         public string CF { get; private set; }
         public int stipendio;
+
+        public Cliente(string nome, string cognome, string cF, int stipendio){
+            this.Nome = nome;
+            this.Cognome = cognome;
+            this.CF = cF;
+            this.stipendio = stipendio;
+        }
     }
 }
